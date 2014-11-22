@@ -7,6 +7,8 @@ This project contains a small set of scripts which can make your life with
 I ([Gianpaolo Macario][2]) developed those scripts to streamline
 my daily work as System Architect within the [GENIVI Alliance][3].
 
+Copyright (C) 2004 [Gianpaolo Macario][2]
+
 The scripts are released under the Mozilla Public License, version 2.0 - 
 see file `LICENSE` in the code for details.
 
