@@ -17,9 +17,8 @@ REPO_ROOT=$(svn info | grep -e '^URL:' | cut -d ' ' -f2)
 
 echo "DEBUG: REPO_ROOT=${REPO_ROOT}"
 
-svn status --show-updates | grep "O" | while read line; do
-    #echo "DEBUG: Parsing line=$line"
-    f=$(echo $line | cut -d ' ' -f3-)
+svn status --show-updates | awk '$1 == "O" {print substr($0,index($0,$3))}' | while read -r f; do
+    f=$(echo "${f}" | tr '\\' '/')
     #echo "DEBUG: f=$f"
     lown=$(svn info "${REPO_ROOT}/${f}" | grep -e '^Lock Owner:' | cut -d ' ' -f3)
     #echo "DEBUG: lown=$lown"
